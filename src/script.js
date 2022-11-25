@@ -28,7 +28,7 @@ function createGrid(size){
         const canvasElement = document.createElement('div');
         canvasElement.style = `border: 1px solid`;
         canvasElement.classList.add('canvas-element');
-        canvasElement.addEventListener('click', fill);
+        canvasElement.addEventListener('mouseover', fill);
         
         canvasContainer.appendChild(canvasElement);            
         

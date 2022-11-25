@@ -13,6 +13,10 @@ sizeSelector.addEventListener('click', getSize);
 function getSize(){
     canvasContainer.replaceChildren();
     let size = parseInt(prompt('Enter size(Max: 100): '));
+    if(size > 100 || isNaN(size)){
+        alert('Invalid entry.');
+        return;
+    }
     createGrid(size);
 }
 

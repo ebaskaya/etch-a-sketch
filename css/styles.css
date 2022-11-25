@@ -1,8 +1,9 @@
 .canvas-container {
-    
+    --size: 16;
+    --element-size: 30px;
     display: grid;
-    border: 1px solid;
-    grid-template-columns: repeat(16, 32px);
-    grid-auto-rows: 32px;
+    grid-template-columns: repeat(var(--size), var(--element-size));
+    grid-auto-rows: var(--element-size);
+    
 
 }

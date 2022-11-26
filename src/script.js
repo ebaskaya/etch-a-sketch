@@ -11,7 +11,6 @@ sizeSelector.addEventListener('click', getSize);
 
 
 function getSize(){
-    
     let size = parseInt(prompt('Enter size(Max: 100): '));
     if(size > 100 || size < 0 || isNaN(size)){
         alert('Invalid entry.');
@@ -29,7 +28,10 @@ function createGrid(size){
         const canvasElement = document.createElement('div');
         canvasElement.style = `border: 1px solid`;
         canvasElement.classList.add('canvas-element');
-        canvasElement.addEventListener('mouseover', fill);
+        canvasElement.addEventListener('mousemove', function(e){
+            fill(e);
+        });
+        canvasElement.addEventListener('mousedown', fill);
         
         canvasContainer.appendChild(canvasElement);            
         
@@ -41,8 +43,15 @@ function setSize(size) {
     canvasContainer.style.setProperty('--element-size', (MAX_SIZE/size) + "px");
 }
 
-function fill() {
-    this.style = 'background-color: black';
+function fill(e) {
+    if(e.buttons == 1){
+        e.target.style = 'background-color: black';
+        e.preventDefault();
+        
+        console.log('cizdik');
+        
+    }
+    
 }
 
 createGrid(canvasSize);
